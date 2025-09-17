@@ -14,6 +14,8 @@ import YoutubeIcon from '@/assets/icons/Youtube.svg'
 import SearchIcon from '@/assets/icons/search-icon.svg'
 import ListIcon from '@/assets/icons/list-1.svg'
 import ListIcon2 from '@/assets/icons/list-2.svg'
+import TypeList from '../TypeList/TypeList'
+import Link from 'next/link'
 const DiscoverSection = () => {
     const allData = useSelector((state: any) => state.case.data);
     const [selected, setSelected] = useState<string>();
@@ -60,18 +62,12 @@ const DiscoverSection = () => {
                     <div className=' flex-col gap-5 lg:hidden flex mt-10 mb-10'>
                         <p className='text-[40px] font-bold text-white'>Ne Görmek İstersin?</p>
                         <div className='flex gap-[10px] overflow-scroll no-scrollbar'>
-                            {
-                                ['Türk Rap', 'Yabancı Rap', 'Rap Haberleri', 'Haftanın Videoları', 'Ayın Videoları', 'Rap Sohbetleri', 'Rap Müsabakaları'].map((list: any, key: any) => (
-                                    <p key={key} onClick={() => setSelected(list)} className={`whitespace-nowrap px-5 py-[10px] border-[1px] border-white text-[16px] font-normal text-white w-max hover:bg-yellow hover:text-black transition-all cursor-pointer hover:font-bold ${selected === list && 'bg-yellow !text-black !font-bold '}`}>
-                                        {list}
-                                    </p>
-                                ))
-                            }
+                            <TypeList selected={selected} setSelected={setSelected} />
                         </div>
                     </div>
                     <div className='flex flex-col lg:gap-20 gap-[60px]'>
                         {visibleData && visibleData.map((item: any, key: any) =>
-                            <div key={key} className='flex lg:flex-row flex-col gap-5 '>
+                            <Link  href={`/blog/${item.attributes.slug}`} key={key} className='flex lg:flex-row flex-col gap-5 '>
                                 <div className='flex flex-col justify-between lg:gap-0 gap-5 '>
                                     <div className="lg:w-[301px] w-full h-[196px] relative">
                                         <Image
@@ -95,7 +91,7 @@ const DiscoverSection = () => {
                                     <div className='w-full h-[1px]  bg-black-700'></div>
                                     <p className='text-white text-[16px] font-normal'>Daha Fazla Oku</p>
                                 </div>
-                            </div>
+                            </Link>
                         )}
                         {visibleCount < filteredData.length && (
                             <div ref={observerRef} className="h-10"></div>

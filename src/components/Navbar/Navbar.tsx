@@ -6,6 +6,7 @@ import MenuIcon from '@/assets/icons/menu.svg'
 import SearchIcon from '@/assets/icons/search.svg'
 import Link from 'next/link'
 import { IoClose } from 'react-icons/io5'
+import { usePathname } from 'next/navigation'
 const Navbar = () => {
     const [menu, setMenu] = useState(false);
     const [showMenu, setShowMenu] = useState(false);
@@ -18,14 +19,15 @@ const Navbar = () => {
     const closeMenu = () => {
         setMenu(true);
     }
-
+    const pathname = usePathname()
+    const isHome = pathname === '/'
     return (
         <>
-            <div className='header lg:px-20 lg:py-5 p-4 flex items-center justify-between lg:border-b-[1px] border-black-900 fixed top-0 w-full  z-60'>
+            <div className={`header lg:px-20 lg:py-5 p-4 h-[80px] flex items-center justify-between lg:border-b-[1px] border-black-900 fixed top-0 w-full  z-60 ${isHome ? '' : '!bg-black'}`}>
                 <div className='flex items-center gap-[96px]'>
-                    <Image src={Logo} alt='Logo' className='lg:w-[235px] lg:h-[59px] w-[182px] h-[45px]' />
+                    <Link href={'/'}> <Image src={Logo} alt='Logo' className='lg:w-[235px] lg:h-[59px] w-[182px] h-[45px]' /></Link>
                     <div className='lg:flex hidden *:text-[14px] *:font-normal *:text-white  items-center gap-[30px] *:uppercase *:cursor-pointer *:hover:text-yellow *:transition-colors'>
-                        <p>Haberler</p>
+                        <Link href={'/blog'}>Haberler</Link>
                         <p>Etkinlikler</p>
                         <p>Müzikler</p>
                         <p>Videolar</p>
@@ -48,15 +50,14 @@ const Navbar = () => {
                         <Link href={'/'} className='w-max' onClick={closeMenu}>Anasayfa
                             {location.pathname === '/' && <div className='h-[2px] bg-yellow'></div>}
                         </Link>
-                        <Link onClick={closeMenu} href={'/haberler'} className='w-max relative h-full z-10' >Haberler
-                            {location.pathname === '/haberler' && <div className='h-[2px] bg-yellow'></div>}
+                        <Link onClick={closeMenu} href={'/blog'} className='w-max relative h-full z-10' >Haberler
+                            {location.pathname === '/blog' && <div className='h-[2px] bg-yellow'></div>}
                         </Link>
                         <Link onClick={closeMenu} href={'/etkinlikler'} className=' w-max relative z-10'>Etkinlikler
                             {location.pathname === '/etkinlikler' && <div className='h-[2px] bg-yellow'></div>}
                         </Link>
                         <Link onClick={closeMenu} href={'/muzikler'} className='w-max relative z-10' >Müzikler
                             {location.pathname === '/muzikler' && <div className='h-[2px] bg-yellow'></div>}
-
                         </Link>
                         <Link onClick={closeMenu} href={'/videolar'} className='w-max'>Videolar
                             {location.pathname === '/videolar' && <div className='h-[2px] bg-yellow'></div>}</Link>

@@ -3,6 +3,9 @@ import "./globals.css";
 import { Saira } from 'next/font/google'
 import ClientProvider from "./ClientProvider";
 import 'animate.css';
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { setData } from "@/redux/case/caseSlice";
 const saira = Saira({
   subsets: ['latin', 'latin-ext'],
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
@@ -18,6 +21,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <html lang="tr">
       <body

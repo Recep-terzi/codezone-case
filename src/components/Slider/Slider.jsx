@@ -1,5 +1,5 @@
 "use client";
-import { Navigation, Pagination } from 'swiper/modules';
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -32,8 +32,12 @@ export default function Slider() {
             </button>
             {swiperReady && <div className='lg:block hidden'>
                 <Swiper
-                    modules={[Navigation]}
+                    modules={[Navigation, Autoplay]}
                     spaceBetween={30}
+                    autoplay={{
+                        delay: 4000,
+                        disableOnInteraction: false,
+                    }}
                     slidesPerView={1}
                     loop={true}
                     onSwiper={(swiper) => {
@@ -71,10 +75,14 @@ export default function Slider() {
                 <Image src={Line} alt='Line' className='w-full h-[200px] absolute bottom-0 z-50 lg:block hidden' /></div>}
             <div className='lg:hidden block h-screen'>
                 <Swiper
-                    modules={[Navigation]}
+                    modules={[Navigation,Autoplay]}
                     className='h-full'
                     spaceBetween={30}
                     slidesPerView={1}
+                    autoplay={{
+                        delay: 4000,
+                        disableOnInteraction: false,
+                    }}
                     loop={true}
                     onSwiper={(swiper) => {
                         swiper.params.navigation.prevEl = prevRef.current;
