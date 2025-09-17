@@ -35,7 +35,13 @@ const Navbar = () => {
                     </div>
                 </div>
                 <div className='lg:flex hidden items-center gap-[35px] *:cursor-pointer '>
-                    <Image src={SearchIcon} alt='Search Icon' className='size-[22px]' />
+                    <Image
+                        src={SearchIcon}
+                        alt="Search Icon"
+                        width={22}
+                        height={22}
+                        className="w-[22px] h-[22px]"
+                    />
                     <button className='w-[120px] h-10 bg-white uppercase font-bold text-[14px] text-black'>Giriş Yap</button>
                 </div>
                 <Image src={MenuIcon} alt='Menu Icon' className='lg:hidden flex' onClick={openMenu} />

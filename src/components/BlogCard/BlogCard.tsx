@@ -17,7 +17,7 @@ const BlogCard: React.FC<IPropsBlogCard> = ({ item }) => {
                         <p className='size-[16px] font-normal text-white'>Rapkology</p>
                     </div>
                     <Link  href={`/blog/${item.attributes.slug}`} className='relative aspect-[358/196]'>
-                        <Image src={item.attributes.img} alt={item.attributes.slug} fill className='absolute inset-0 w-full h-full object-cover text-transparent ' />
+                        <Image src={item.attributes.img} alt={item.attributes.slug} fill sizes='100%' className='absolute inset-0 w-full h-full object-cover text-transparent ' />
                     </Link>
                     <p className='text-black-600 text-[14px] font-normal'>{new Date(item.createdAt).toLocaleDateString('tr-TR', {
                         day: 'numeric',

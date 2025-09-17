@@ -34,15 +34,15 @@ const BlogSlider: React.FC<IPropsBlogSlider> = ({ setActiveIndex, data, activeIn
                 onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
             >
                 {
-                    data.slice(0, 6).map((item: any) => (
-                        <>
-                            <SwiperSlide className='flex flex-col'>
+                    data.slice(0, 6).map((item: any, key:any) => (
+                            <SwiperSlide className='flex flex-col' key={key}>
                                 <Link href={`/blog/${item.attributes.slug}`}   >
                                     <div className='relative w-full lg:h-[430px] h-[209px] lg:aspect-[358/196]'>
                                         <Image
                                             src={item.attributes.img}
                                             alt={item.attributes.slug}
                                             fill
+                                            sizes='100%'
                                             style={{ objectFit: 'cover' }}
                                             className='absolute inset-0 w-full h-full object-cover text-transparent '
                                         />
@@ -67,9 +67,6 @@ const BlogSlider: React.FC<IPropsBlogSlider> = ({ setActiveIndex, data, activeIn
                                     </div>
                                 </div>
                             </SwiperSlide>
-
-                        </>
-
                     ))
                 }
             </Swiper>

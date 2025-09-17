@@ -46,7 +46,7 @@ export default function BlogDetail({ params }: Props) {
                             <p className="lg:text-[16px] text-[14px] font-normal text-white">{filteredData.attributes.content}</p>
                         </div>
                         <div className='relative aspect-[358/196]'>
-                            <Image src={filteredData.attributes.img} alt={filteredData.attributes.slug} fill className='absolute inset-0 w-full h-full object-cover text-transparent ' />
+                            <Image src={filteredData.attributes.img} alt={filteredData.attributes.slug} fill sizes="100%" className='absolute inset-0 w-full h-full object-cover text-transparent ' />
                             <Image src={PlayIcon} alt="Play Icon" className="absolute inset-0 m-auto" />
                         </div>
                         <div className="flex gap-[10px]">
@@ -71,7 +71,7 @@ export default function BlogDetail({ params }: Props) {
                             <div className="flex flex-col gap-[28px] ">
                                 <div className="flex flex-col gap-[28px]">
                                     {data.slice(0, 3).map((list: any, idx: number) => (
-                                        <div
+                                        <Link  href={`/blog/${list.attributes.slug}`}
                                             key={idx}
                                             className={`flex items-center gap-[21px] pb-[28px] ${idx < 2 ? 'border-b border-black-700' : ''
                                                 }`}
@@ -81,7 +81,7 @@ export default function BlogDetail({ params }: Props) {
                                             </div>
 
                                             <p className="lg:text-[25px] text-[20px] font-bold text-white line-clamp-3">{list.attributes.desc}</p>
-                                        </div>
+                                        </Link>
                                     ))}
                                 </div>
                             </div>

@@ -34,8 +34,7 @@ const page = () => {
         )
         : data || [];
     const [count, setCount] = useState<number>(8)
-    console.log(data);
-    
+
     return (
         <>
             <div className='overflow-hidden relative w-full lg:h-full h-full lg:py-[150px] py-[120px] bg-yellow lg:bg-no-repeat bg-repeat' style={{ backgroundImage: `url(${BlogBG.src})`, objectFit: "cover", backgroundSize: "100%", backgroundPositionX: "center" }}>
@@ -52,8 +51,8 @@ const page = () => {
                             <BlogSlider activeIndex={activeIndex} data={data} setActiveIndex={setActiveIndex} />
                         </div>
                         <div className='lg:col-span-5 flex flex-col w-full h-full lg:justify-between lg:gap-0 gap-[30px]  z-50'>
-                            {data.slice(6, 10).map((item: any) => (
-                                <>
+                            {data.slice(6, 10).map((item: any, key:any) => (
+                                <div key={key}>
                                     <Link href={`/blog/${item.attributes.slug}`} className='flex items-start gap-5 w-full'>
                                         <div className='flex-shrink-0'>
                                             <img
@@ -66,7 +65,7 @@ const page = () => {
                                             {item.attributes.desc}
                                         </p>
                                     </Link>
-                                </>
+                                </div>
                             ))}
                         </div>
                     </div>
@@ -93,9 +92,11 @@ const page = () => {
                         </div>
                         <div className='grid lg:grid-cols-4 justify-between lg:gap-5'>
                             {
-                                filteredData.slice(0, count).map((item: any) => (<>
-                                    <BlogCard item={item} />
-                                </>))
+                                filteredData.slice(0, count).map((item: any, key:any) => (
+                                    <div key={key}>
+                                        <BlogCard item={item} />
+                                    </div>
+                                ))
                             }
                         </div>
                     </div>
@@ -105,21 +106,21 @@ const page = () => {
                 count !== 10 &&
                 <Image src={Button3} alt='Button' onClick={() => setCount(10)} className='lg:w-[195px] w-[155px] lg:h-12 h-[42px] m-auto hover:scale-105 transition-all cursor-pointer  mb-[50px]' />
             }
-          <Container>
-              <div className='lg:hidden flex flex-col gap-8'>
-                <div className='flex items-center gap-5'>
-                    <p className='lg:text-[60px] text-[40px] font-bold text-white'>KLİPLER</p>
-                    <Image src={ClipIcon} alt='Discover Icon' className='lg:w-auto lg:h-auto size-[42px]' />
+            <Container>
+                <div className='lg:hidden flex flex-col gap-8'>
+                    <div className='flex items-center gap-5'>
+                        <p className='lg:text-[60px] text-[40px] font-bold text-white'>KLİPLER</p>
+                        <Image src={ClipIcon} alt='Discover Icon' className='lg:w-auto lg:h-auto size-[42px]' />
+                    </div>
+                    <div className='flex flex-col gap-5'>
+                        {data.slice(5, 8).map((list: any, key:any) => (
+                            <div key={key}>
+                                <BlogClip item={list} />
+                            </div>
+                        ))}
+                    </div>
                 </div>
-                <div className='flex flex-col gap-5'>
-                    {data.slice(5, 8).map((list: any) => (
-                        <>
-                            <BlogClip item={list} />
-                        </>
-                    ))}
-                </div>
-            </div>
-          </Container>
+            </Container>
             <Footer />
         </>
     )

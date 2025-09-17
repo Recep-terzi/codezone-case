@@ -74,6 +74,7 @@ const DiscoverSection = () => {
                                             src={item.attributes.img}
                                             alt={item.attributes.slug}
                                             fill
+                                            sizes='100%'
                                         />
                                     </div>
                                     <p className=' w-max text-black-700 text-[16px] font-normal'>{new Date(item.createdAt).toLocaleDateString('tr-TR', {
