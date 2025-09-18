@@ -10,6 +10,7 @@ Deploy Link : (https://codezone-recep.netlify.app/)
 -  Projede `TypeScript` kullandım. Bu sayede kodun okunabilirliği ve güvenliği artırıldı. Gerekli durumlarda TypeScript ile projeleri hazırlayabiliyorum.
 -  Mobil ekranda da Figma tasarımında bulunmayan menü ağacını tasarıma uygun bir şekilde hazırlayıp ekledim.
 -  Animasyonlar için sizin de beklediğiniz `Swiper` kütüphanesini kullanmaya özen gösterdim. Gerekli yerlerde Swiper kullanarak tasarıma haraket ve canlılık kattım. Ekstra olarak da projelerimde sık sık kullandığım işimi kolaylaştıran animasyon kütüphaneleri olan `react-awesome-reveal` ve `animate.css` kütüphanelerini de kullandım. Anasayfa ve blog sayfalarında detayları rahatlıkla görebilirsiniz.
+-  Ayın Favorileri kısmındaki verilerin datası olmadığından dolayı bir tanesini alıp oraya ekledim. Swiper kullanarak animasyonunu ve hover animasyonunu da uygun şekilde ayarladım.
 -  Verilen mock datayı doğrudan kullanmak yerine, fetch ile API isteğinde bulundum. Tekrarlayan API çağrılarını önlemek için gelen veriyi `Redux` global state içerisinde tuttum, böylece farklı componentlerde ve sayfalarda rahatlıkla kullanabildim.
 -  API’dan gelen SEO etiketlerini blog detay sayfalarında generateMetadata fonksiyonu ile işleyerek title, description ve canonical verilerini head tag’leri arasına ekledim.
 -  Projedeki tüm görseller ve ikonlar, assets/icons ve assets/images klasörlerinde düzenli bir şekilde topladım. Bu sayede görselleri farklı componentlerde rahatlıkla kullanmam mümkün oldu.
