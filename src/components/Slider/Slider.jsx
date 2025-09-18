@@ -1,11 +1,9 @@
 "use client";
-import { Autoplay, Navigation, Pagination } from 'swiper/modules';
-
+import { Autoplay, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Swiper, SwiperSlide } from "swiper/react";
-
 import Image1 from '@/assets/images/image-1.png'
 import Image2 from '@/assets/images/image-2.png'
 import Button from '@/assets/icons/button.png'
@@ -16,6 +14,7 @@ import Line from '@/assets/images/line.png'
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { Slide } from 'react-awesome-reveal';
+
 export default function Slider() {
     const prevRef = useRef(null);
     const nextRef = useRef(null);

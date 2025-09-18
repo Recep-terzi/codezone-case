@@ -2,7 +2,7 @@
 
 import { setData } from '@/redux/case/caseSlice'
 import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 export default function GlobalDataLoader() {
   const dispatch = useDispatch()

@@ -14,7 +14,6 @@ import PlayIcon from '@/assets/icons/play.svg'
 import React from 'react'
 import Link from "next/link"
 import Trend from "@/components/Trend/Trend"
-import Head from "next/head"
 
 interface IPropsBlogDetail{
     filteredData?:any;

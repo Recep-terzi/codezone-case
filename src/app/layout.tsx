@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: "Codezone Case - Recep Terzi",
   description: "Codezone Case - Recep Terzi",
   icons: {
-    icon: "/favicon.ico",  
+    icon: "/favicon.ico",
     shortcut: "/favicon.ico",
     apple: "/favicon.ico",
   },

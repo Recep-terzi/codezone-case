@@ -6,14 +6,10 @@ import YoutubeLogo from '@/assets/icons/Youtube Logo.png'
 import SpotifyLogo from '@/assets/icons/Spotify Logo.png'
 import Image from 'next/image'
 import Container from '../Container/Container'
-import React, { useRef, useState } from 'react';
+import React, {  useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-
-
-
-import { Pagination } from 'swiper/modules';
 import FavoriteCard from '../FavoriteCard/FavoriteCard'
+
 const FavoriteSection = () => {
     const totalSlides = 10;
     const [progress, setProgress] = useState(10);
