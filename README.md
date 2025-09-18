@@ -16,6 +16,8 @@ Deploy Link : (https://codezone-recep.netlify.app/)
 -  Projeyi geliştirirken Lighthouse ile performans, erişilebilirlik, SEO ve en iyi uygulamalar testlerini gerçekleştirdim ve tüm testlerden başarılı sonuçlar aldım. Bu sayede proje hem kullanıcı deneyimi hem de teknik kalite açısından optimize edildi.
 -  Projede ekip çalışması ve commit geçmişinin anlaşılabilirliği için genellikle kullandığım `Conventional Commit` yaklaşımını benimsedim. Tüm commitler bu standartlara uygun şekilde oluşturuldu.
   
+NOT: Navbar kısmında blog yazmadığı için haberler kısmına o sayfanın link yönlendirmesini koydum. Oradan tıklayarak veya /blog üzerinden erişim sağlayabilirsiniz. Özel blog detayları da cardların üstüne tıklayarak erişebilirsiniz.
+
 ## Kullanılan Teknolojiler
 - **Next.js v15.5.3** – Modern React framework, SSR ve SSG desteği.
 - **TypeScript** – Kod güvenliği ve okunabilirlik.
