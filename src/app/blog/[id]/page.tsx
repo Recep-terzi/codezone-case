@@ -1,8 +1,8 @@
 import BlogDetail from "@/components/BlogDetail/BlogDetail"
 
-interface Props { params: { id: string } }
+interface PageProps { params: { id: string } }
 
-export async function generateMetadata({ params }: Props) {
+export async function generateMetadata({ params }: PageProps) {
     const res = await fetch(`https://dummyjson.com/c/a7c4-016a-47aa-8241`)
     const data = await res.json()
     const filteredData = data?.find((item: any) => item.attributes.slug === params.id)
@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: Props) {
     }
 }
 
-export default async function Page({ params }: Props) {
+export default async function Page({ params }: PageProps) {
     const res = await fetch(`https://dummyjson.com/c/a7c4-016a-47aa-8241`)
     const data = await res.json()
     const filteredData = data?.find((item: any) => item.attributes.slug === params.id)
