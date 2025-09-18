@@ -1,6 +1,10 @@
 import BlogDetail from "@/components/BlogDetail/BlogDetail"
 
-interface PageProps { params: { id: string } }
+interface PageProps {
+  params: Record<string, string | string[]>
+  searchParams?: Record<string, string | string[] | undefined>
+}
+
 
 export async function generateMetadata({ params }: PageProps) {
     const res = await fetch(`https://dummyjson.com/c/a7c4-016a-47aa-8241`)
