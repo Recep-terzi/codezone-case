@@ -27,9 +27,9 @@ const BlogDetail: React.FC<IPropsBlogDetail> = ({filteredData,data}) => {
             <Container>
                 <div className="lg:py-[150px] py-[120px] flex flex-col gap-10">
                     <div className='  items-center gap-5 *:text-[14px] font-normal text-white flex *:whitespace-nowrap'>
-                        <p>ANA SAYFA</p>
+                        <Link href={'/'}>ANA SAYFA</Link>
                         <p>&gt; </p>
-                        <p>BLOG</p>
+                        <Link href={'/blog'}>BLOG</Link>
                         <p>&gt; </p>
                         <p className="max-w-[200px] overflow-hidden text-ellipsis whitespace-nowrap">
                             {filteredData?.attributes.title}
