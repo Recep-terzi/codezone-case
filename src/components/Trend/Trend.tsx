@@ -7,6 +7,7 @@ import Button2 from '@/assets/icons/button2.png'
 import RapIcon from '@/assets/icons/rap-icon.png'
 import {  useSelector } from 'react-redux'
 import Link from 'next/link'
+import { Fade } from 'react-awesome-reveal'
 
 interface IPropsTrend{
     grid?:any;
@@ -27,12 +28,13 @@ const Trend:React.FC<IPropsTrend> = ({grid,containerClassName}) => {
                     <span className="loader"></span>
                 </div>
             ) : (
-                <div className={`grid lg:grid-cols-3 lg:gap-5 gap-[50px] lg:mt-[90px] mt-[50px] ${grid && grid}`}>
+                <div className={`grid lg:grid-cols-3 lg:gap-10 gap-[50px] lg:mt-[90px] mt-[50px] ${grid && grid}`}>
 
                     {data.slice(0, 6).map((item: any, key: any) => (
-                        <Link  href={`/blog/${item.attributes.slug}`} key={key} className='flex lg:gap-[60px] gap-10 lg:items-stretch items-start '>
+                        <Fade key={key}>
+                            <Link  href={`/blog/${item.attributes.slug}`} className='flex lg:gap-[60px] gap-10 lg:items-stretch items-start h-full '>
                             <p className='text-black-900 font-bold text-[60px] w-[80px]   shrink-0 lg:leading-normal leading-none'>0{key + 1}</p>
-                            <div className='flex flex-col justify-between'>
+                            <div className='flex flex-col justify-between h-full'>
                                 <div className='flex flex-col lg:gap-0 gap-5'>
                                     <div className='flex items-center gap-4'>
                                         <Image src={RapIcon} alt='Rap Icon' />
@@ -46,6 +48,7 @@ const Trend:React.FC<IPropsTrend> = ({grid,containerClassName}) => {
                                 </div>
                             </div>
                         </Link>
+                        </Fade>
                     ))}
                 </div>
 

@@ -15,6 +15,7 @@ import PlayIcon from '@/assets/icons/play.svg'
 import React from 'react'
 import Link from "next/link"
 import Trend from "@/components/Trend/Trend"
+import Head from "next/head"
 interface Props {
     params: Promise<{ id: string }>;
 }
@@ -22,7 +23,15 @@ export default function BlogDetail({ params }: Props) {
     const { id } = React.use(params)
     const data = useSelector((state: any) => state.case.data)
     const filteredData = data.find((item: any) => item.attributes.slug === id)
+    console.log(filteredData)
     return (
+        <>
+          {filteredData && 
+          <Head>
+        <title>{filteredData.attributes.seo.metaTitle}</title>
+        <meta name="description" content={filteredData.attributes.seo.metaDescription} />
+        <link rel="canonical" href={`https://codezone-recep.netlify.app/blog/${filteredData.attributes.seo.canonicalURL}`} />
+      </Head>}
         <Container>
             <div className="lg:py-[150px] py-[120px] flex flex-col gap-10">
                 <div className='  items-center gap-5 *:text-[14px] font-normal text-white flex *:whitespace-nowrap'>
@@ -50,8 +59,8 @@ export default function BlogDetail({ params }: Props) {
                             <Image src={PlayIcon} alt="Play Icon" className="absolute inset-0 m-auto" />
                         </div>
                         <div className="flex gap-[10px]">
-                            {filteredData && filteredData.attributes.tags.map((list: any) => (
-                                <p className="p-[10px] bg-black-800 text-white text-[16px] font-normal">
+                            {filteredData && filteredData.attributes.tags.map((list: any,key:any) => (
+                                <p key={key} className="p-[10px] bg-black-800 text-white text-[16px] font-normal">
                                     {list}
                                 </p>
                             ))}
@@ -118,5 +127,6 @@ export default function BlogDetail({ params }: Props) {
             </div>
 
         </Container>
+        </>
     )
 }

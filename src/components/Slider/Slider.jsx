@@ -14,6 +14,8 @@ import RightIcon from '@/assets/icons/right-icon.svg'
 import LeftIcon from '@/assets/icons/left-icon.svg'
 import Line from '@/assets/images/line.png'
 import { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
+import { Slide } from 'react-awesome-reveal';
 export default function Slider() {
     const prevRef = useRef(null);
     const nextRef = useRef(null);
@@ -56,7 +58,7 @@ export default function Slider() {
                                     TRENDLERİNİ
                                     KONUŞUYORUZ.</p>
                                 <p className='text-[16px] font-normal text-black'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi </p>
-                                <Image src={Button} alt='Button' />
+                                <Slide direction='down'> <Link href={'/blog'}><Image src={Button} alt='Button' className='hover:scale-105 transition-all cursor-pointer' /></Link></Slide>
                             </div>
                         </div>
                     </SwiperSlide>
@@ -65,9 +67,10 @@ export default function Slider() {
                             style={{ backgroundImage: `url(${Image2.src})`, objectFit: "cover", backgroundRepeat: "no-repeat", backgroundSize: "100%" }}
                             className={` w-full h-screen relative`}>
                             <div className='absolute right-[240px] flex flex-col gap-[23px] w-[520px] top-0 bottom-0 my-auto  justify-center'>
+
                                 <p className='text-[60px] font-bold text-white'>TÜRKÇE RAP VE DÜNYA MÜZİK <span className='whitespace-nowrap'>HABERLERİNİ TAKİP ET</span></p>
                                 <p className='text-[16px] font-normal text-white'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi </p>
-                                <Image src={Button} alt='Button' />
+                                <Slide direction='down'> <Link href={'/blog'}><Image src={Button} alt='Button' className='hover:scale-105 transition-all cursor-pointer' /></Link></Slide>
                             </div>
                         </div>
                     </SwiperSlide>
@@ -75,7 +78,7 @@ export default function Slider() {
                 <Image src={Line} alt='Line' className='w-full h-[200px] absolute bottom-0 z-50 lg:block hidden' /></div>}
             <div className='lg:hidden block h-screen'>
                 <Swiper
-                    modules={[Navigation,Autoplay]}
+                    modules={[Navigation, Autoplay]}
                     className='h-full'
                     spaceBetween={30}
                     slidesPerView={1}
@@ -102,7 +105,6 @@ export default function Slider() {
                                 <div style={{ backgroundImage: `url(${Image2.src})`, objectFit: "contain", backgroundPositionX: "-150px", backgroundRepeat: "no-repeat", backgroundSize: "100%" }} className='w-[960px] h-[644px] '>
                                 </div>
                                 <div style={{ backgroundImage: `url(${Line.src})`, objectFit: "contain", backgroundRepeat: "no-repeat", backgroundSize: "100%" }} className='absolute bottom-0 w-[960px] h-[150px]'>
-
                                 </div>
                             </div>
 

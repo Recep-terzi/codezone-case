@@ -16,6 +16,7 @@ import ListIcon from '@/assets/icons/list-1.svg'
 import ListIcon2 from '@/assets/icons/list-2.svg'
 import TypeList from '../TypeList/TypeList'
 import Link from 'next/link'
+import { Fade } from 'react-awesome-reveal'
 const DiscoverSection = () => {
     const allData = useSelector((state: any) => state.case.data);
     const [selected, setSelected] = useState<string>();
@@ -67,7 +68,8 @@ const DiscoverSection = () => {
                     </div>
                     <div className='flex flex-col lg:gap-20 gap-[60px]'>
                         {visibleData && visibleData.map((item: any, key: any) =>
-                            <Link  href={`/blog/${item.attributes.slug}`} key={key} className='flex lg:flex-row flex-col gap-5 '>
+                           <Fade key={key}>
+                             <Link href={`/blog/${item.attributes.slug}`}  className='flex lg:flex-row flex-col gap-5 '>
                                 <div className='flex flex-col justify-between lg:gap-0 gap-5 '>
                                     <div className="lg:w-[301px] w-full h-[196px] relative">
                                         <Image
@@ -93,6 +95,7 @@ const DiscoverSection = () => {
                                     <p className='text-white text-[16px] font-normal'>Daha Fazla Oku</p>
                                 </div>
                             </Link>
+                           </Fade>
                         )}
                         {visibleCount < filteredData.length && (
                             <div ref={observerRef} className="h-10"></div>

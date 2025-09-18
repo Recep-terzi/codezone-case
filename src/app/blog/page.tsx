@@ -9,12 +9,10 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import Container from '@/components/Container/Container'
-
 import { useSelector } from 'react-redux'
 import DiscoverIcon from '@/assets/icons/discover-icon.png'
 import SearchIcon from '@/assets/icons/search-icon.svg'
 import ListIcon from '@/assets/icons/list-1.svg'
-import RapIcon from '@/assets/icons/rap-icon.png'
 import ListIcon2 from '@/assets/icons/list-2.svg'
 import Button3 from '@/assets/icons/button3.png'
 import Footer from '@/components/Footer/Footer'
@@ -24,6 +22,7 @@ import BlogSlider from '@/components/BlogSlider/BlogSlider'
 import TypeList from '@/components/TypeList/TypeList'
 import ClipIcon from '@/assets/icons/clip.svg'
 import BlogClip from '@/components/BlogClip/BlogClip'
+import { Fade } from 'react-awesome-reveal'
 const page = () => {
     const data = useSelector((state: any) => state.case.data)
     const [activeIndex, setActiveIndex] = useState(0)
@@ -93,9 +92,9 @@ const page = () => {
                         <div className='grid lg:grid-cols-4 justify-between lg:gap-5'>
                             {
                                 filteredData.slice(0, count).map((item: any, key:any) => (
-                                    <div key={key}>
+                                    <Fade key={key}>
                                         <BlogCard item={item} />
-                                    </div>
+                                    </Fade>
                                 ))
                             }
                         </div>
