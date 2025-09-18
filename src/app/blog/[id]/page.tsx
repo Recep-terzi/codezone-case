@@ -1,13 +1,6 @@
 import BlogDetail from "@/components/BlogDetail/BlogDetail"
 
-interface PageProps {
-  params: {
-    id: string | string[];
-  };
-  searchParams?: Record<string, string | string[] | undefined>;
-}
-
-export async function generateMetadata({ params }: PageProps) {
+export async function generateMetadata({ params }: { params: { id: string | string[] } }) {
     const id = Array.isArray(params.id) ? params.id[0] : params.id;
     const res = await fetch('https://dummyjson.com/c/a7c4-016a-47aa-8241');
     const data = await res.json();
@@ -22,7 +15,7 @@ export async function generateMetadata({ params }: PageProps) {
     }
 }
 
-export default async function Page({ params }: PageProps) {
+export default async function Page({ params }: { params: { id: string | string[] } }) {
     const id = Array.isArray(params.id) ? params.id[0] : params.id;
     const res = await fetch('https://dummyjson.com/c/a7c4-016a-47aa-8241');
     const data = await res.json();
